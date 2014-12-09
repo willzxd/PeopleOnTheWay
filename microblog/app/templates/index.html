@@ -1,0 +1,224 @@
+<!-- extend base layout -->
+{% extends "basehome.html" %}
+{% block content %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>Travel Connection</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="description" content="">
+                    <meta name="author" content="">
+                        
+                        <!-- Le styles -->
+                        <link href="/static/css/travel.css" rel="stylesheet">
+                            <style type="text/css">
+                                body {
+                                    padding-top: 60px;
+                                    padding-bottom: 40px;
+                                    }                                      
+
+
+                            </style>
+                            <link href="/static/css/travel-responsive.css" rel="stylesheet">
+                                
+                                <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+                                <!--[if lt IE 9]>
+                                 <script src="../assets/js/html5shiv.js"></script>
+                                 <![endif]-->
+                                
+                                <!-- Fav and touch icons -->
+                                <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/65281_letter-t_lg.png">
+                                    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/65281_letter-t_lg.png">
+                                        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/65281_letter-t_lg.png">
+                                            <link rel="apple-touch-icon-precomposed" href="../assets/ico/a65281_letter-t_lg.png">
+                                                <link rel="shortcut icon" href="../assets/ico/65281_letter-t_lg.png">
+                                                    </head>
+    
+    <body>
+            <div class="hero-unit">
+                <h3 class="text-center" style="margin-top: 100px"><font face="Century Schoolbook" size="4" color="#3366CC"><em>"Travel is not only about sights,  it is also about people!"</em></font></h3>
+                <h1 class="text-center">Travel Connection</h1>
+                <h3 class="text-center"><font color="#ffffff">Have questions? <font color="#ffffff"> Ask experts.</font></font></h2>
+                    <table style="table-layout: fixed; width: 100%">
+                    <form action="/search_results/" method="post" name="search">
+                        {{ form.hidden_tag() }}
+                        <!--           <col width="100">
+                         <col width="300"> -->
+                        <tr>
+                            <td align="left" valign="top">
+                                <h5> Country </h5>
+                                <select name = "country">
+                                    <option selected = "selected">United States</option>
+                                </select>
+                            </td>
+                            <td>
+                                <h5> State </h5>
+                                <select name = "state">
+            <option>AK</option>
+            <option>AZ</option>
+            <option>CA</option> 
+            <option>DC</option>
+            <option>FL</option>
+            <option>GA</option>
+            <option>HI</option>           
+            <option>IL</option>           
+            <option>MA</option>
+            <option>MN</option>
+            <option>NJ</option>
+            <option>NY</option> 
+            <option>NC</option> 
+            <option>TA</option>    
+            <option>WA</option> 
+                                </select>
+                            </td>
+                            <td>
+                                <h5> City </h5>
+                                <select name = "city">
+            <option>Anchorage, AK</option>
+            <option>Juneau, AK</option>
+            <option>Phoenix, AZ</option>
+            <option>Los Angeles, CA</option>
+            <option>San Francisco, CA</option>
+            <option>Sacramento, CA</option> 
+            <option>Washington, DC</option>
+            <option>Miami, FL</option>
+            <option>Olando, FL</option>
+            <option>Tallahassee, FL</option>
+            <option>Atlanta, GA</option>
+            <option>Honolulu, HI</option>
+            <option>Chicago, IL</option>           
+            <option>Springfield, IL</option>           
+            <option>Boston, MA</option>
+            <option>Minneapolis, MN</option>
+            <option>Saint Paul, MN</option>
+            <option>Newark, NJ</option>
+            <option>Trenton, NJ</option>
+            <option>Albany, NY</option>
+            <option>New York City, NY</option>
+            <option>Durham, NC</option>
+            <option>Chapel Hill, NC</option>
+            <option>Charlotte, NC</option> 
+            <option>Raleigh, NC</option> 
+            <option>Austin, TX</option>
+            <option>Dallas–Fort Worth, TX</option>
+            <option>Houston, TX</option>    
+            <option>Olympia, WA</option>
+            <option>Seattle, WA</option>      
+            <option>Madison, WI</option>
+            <option>Milwaukee, WI</option> 
+                                </select>
+                            </td>
+                            <td>
+                                <h5>Interest Area </h5>
+                                <select name = "activity">
+            <option>  Art Scene </option>
+            <option>  Christmas Lights </option>
+            <option>  Concerts </option>
+            <option>  Festivals </option>
+            <option>  Free Attractions</option>
+            <option>  Galleries</option>
+            <option>  Historical Sites</option>
+            <option>  Museums</option>
+            <option>  Music Scene</option>
+            <option>  Theater</option>
+            <option>  Antiques Stores</option>
+            <option>  Bookstores</option>
+            <option>  Boutiques</option>
+            <option>  Flea Markets</option>
+            <option>  Home Décor/Design Stores</option>
+            <option>  Luxury Stores</option>
+            <option>  Specialty Food Markets/Food Halls</option>
+            <option>  Public Parks/Gardens</option>
+            <option>  Public Transportation</option>
+            <option>  Cocktail Bars</option>
+            <option>  Dive Bars</option>
+            <option>  Live Music Scene</option>
+            <option>  Nightclubs</option>
+            <option>  Singles Scene</option>
+            <option>  Wine Bars</option>
+            <option>  Bakeries</option>
+            <option>  Barbecue</option>
+            <option>  Bars</option>
+            <option>  Brunch</option>
+            <option>  Coffee</option>
+            <option>  Craft Beer</option>
+            <option>  Diners</option>
+            <option>  Hamburgers</option>
+            <option>  Notable Restaurants</option>
+            <option>  Pizza</option>
+            <option>  Sandwiches</option>
+            <option>  Street Food/Food Trucks</option>
+            <option>  Spa</option>
+            <option>  Skiing</option>
+            <option>  Hiking</option>
+            <option>  Fishing</option>
+            <option>  Climbing</option>
+            <option>  Cycling</option>
+                                </select>
+                            </td>
+                            {% for error in form.state.errors %}
+                State error! 
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}<br>
+                {% for error in form.city.errors %}
+                City field error! 
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}<br>
+                {% for error in form.activity.errors %}
+                    Activity field error!
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}<br>
+            </table>
+                            <p><input class="btn btn-primary btn-large" type = "submit" style="margin-top: 20px" value = "Start Search"></p>
+                </form>
+            </div>
+        
+        <div class="newhero">
+            <!-- Example row of columns -->
+            <table class="table">
+             <tr>
+                    <td>
+                        <img src="/static/TravelImages/newyork.jpeg" width="370" height="210" class="img">
+                            </td>
+                    <td>
+                        <img src="/static/TravelImages/orlando.jpeg" width="370" height="210" class="img">
+                            </td>
+                    <td>
+                        <img src="/static/TravelImages/grandcanyon.jpg" width="370" height="210" class="img">
+                            </td>
+                    <td>
+                        <img src="/static/TravelImages/falls.jpeg" width="330" height="210" class="img">
+                            </td>
+                </tr>   
+            </table>
+
+        
+        <hr>
+        
+        <footer>
+            <p>&copy; Travel Team</p>
+        </footer>
+        </div>
+        
+         <!-- /container -->
+        
+        <!-- Le javascript
+         ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/bootstrap-transition.js"></script>
+        <script src="../assets/js/bootstrap-alert.js"></script>
+        <script src="../assets/js/bootstrap-modal.js"></script>
+        <script src="../assets/js/bootstrap-dropdown.js"></script>
+        <script src="../assets/js/bootstrap-scrollspy.js"></script>
+        <script src="../assets/js/bootstrap-tab.js"></script>
+        <script src="../assets/js/bootstrap-tooltip.js"></script>
+        <script src="../assets/js/bootstrap-popover.js"></script>
+        <script src="../assets/js/bootstrap-button.js"></script>
+        <script src="../assets/js/bootstrap-collapse.js"></script>
+        <script src="../assets/js/bootstrap-carousel.js"></script>
+        <script src="../assets/js/bootstrap-typeahead.js"></script>
+        
+    </body>
+</html>
+{% endblock %}

@@ -1,0 +1,10 @@
+<table>
+    <tr valign="top">
+        <td><img src="{{l.avatar(50)}}"></td>
+        <td>{{l.nickname}}</td>
+        {% if l.user_new(user) == True %}
+        <td><b>New message here!</b></td>
+        {% endif %}
+        <td><a href="/message/{{l.nickname}}">View the history messages</a></td>
+    </tr>
+</table>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+{% extends "basehome.html" %}
+{% block content %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travel Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/css/travel.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+        }
+
+        .travelselection {
+        padding: 60px;
+        margin-bottom: 30px;
+        font-size: 14px;
+        font-weight: 200;
+        line-height: 30px;
+        color: inherit;
+        background-color: #ECF0F2;
+ /*       -webkit-border-radius: 6px;
+           -moz-border-radius: 6px;
+                border-radius: 6px;*/
+        }
+
+    </style>
+    <link href="/static/css/travel-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/65281_letter-t_lg.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/65281_letter-t_lg.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/65281_letter-t_lg.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/a65281_letter-t_lg.png">
+                                   <link rel="shortcut icon" href="../assets/ico/65281_letter-t_lg.png">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="travelselection">
+        <table style="table-layout: fixed; width: 100%">
+          <col width="100">
+          <col width="300">
+        <tr>
+        <td align="left" valign="top">
+          <h4> Country </h4>
+          <select>
+            <option>United States</option>
+          </select>
+          <h4> State </h4>
+          <select>
+            <option>AK</option>
+            <option>AZ</option>
+            <option>CA</option> 
+            <option>DC</option>
+            <option>FL</option>
+            <option>GA</option>
+            <option>HI</option>           
+            <option>IL</option>           
+            <option>MA</option>
+            <option>MN</option>
+            <option>NJ</option>
+            <option>NY</option> 
+            <option>NC</option> 
+            <option>TA</option>    
+            <option>WA</option>      
+            <option>WI</option>                                   
+          </select>
+          <h4> City </h4>
+          <select>
+            <option>Anchorage, AK</option>
+            <option>Juneau, AK</option>
+            <option>Phoenix, AZ</option>
+            <option>Los Angeles, CA</option>
+            <option>San Francisco, CA</option>
+            <option>Sacramento, CA</option> 
+            <option>Washington, DC</option>
+            <option>Miami, FL</option>
+            <option>Olando, FL</option>
+            <option>Tallahassee, FL</option>
+            <option>Atlanta, GA</option>
+            <option>Honolulu, HI</option>
+            <option>Chicago, IL</option>           
+            <option>Springfield, IL</option>           
+            <option>Boston, MA</option>
+            <option>Minneapolis, MN</option>
+            <option>Saint Paul, MN</option>
+            <option>Newark, NJ</option>
+            <option>Trenton, NJ</option>
+            <option>Albany, NY</option>
+            <option>New York City, NY</option>
+            <option>Durham, NC</option>
+            <option>Chapel Hill, NC</option>
+            <option>Charlotte, NC</option> 
+            <option>Raleigh, NC</option> 
+            <option>Austin, TX</option>
+            <option>Dallas–Fort Worth, TX</option>
+            <option>Houston, TX</option>    
+            <option>Olympia, WA</option>
+            <option>Seattle, WA</option>      
+            <option>Madison, WI</option>
+            <option>Milwaukee, WI</option> 
+          </select>
+          <h4>Interest Area </h4>
+          <select>
+            <option>  Art Scene </option>
+            <option>  Christmas Lights </option>
+            <option>  Concerts </option>
+            <option>  Festivals </option>
+            <option>  Free Attractions</option>
+            <option>  Galleries</option>
+            <option>  Historical Sites</option>
+            <option>  Museums</option>
+            <option>  Music Scene</option>
+            <option>  Theater</option>
+            <option>  Antiques Stores</option>
+            <option>  Bookstores</option>
+            <option>  Boutiques</option>
+            <option>  Flea Markets</option>
+            <option>  Home Décor/Design Stores</option>
+            <option>  Luxury Stores</option>
+            <option>  Specialty Food Markets/Food Halls</option>
+            <option>  Public Parks/Gardens</option>
+            <option>  Public Transportation</option>
+            <option>  Cocktail Bars</option>
+            <option>  Dive Bars</option>
+            <option>  Live Music Scene</option>
+            <option>  Nightclubs</option>
+            <option>  Singles Scene</option>
+            <option>  Wine Bars</option>
+            <option>  Bakeries</option>
+            <option>  Barbecue</option>
+            <option>  Bars</option>
+            <option>  Brunch</option>
+            <option>  Coffee</option>
+            <option>  Craft Beer</option>
+            <option>  Diners</option>
+            <option>  Hamburgers</option>
+            <option>  Notable Restaurants</option>
+            <option>  Pizza</option>
+            <option>  Sandwiches</option>
+            <option>  Street Food/Food Trucks</option>
+            <option>  Spa</option>
+            <option>  Skiing</option>
+            <option>  Hiking</option>
+            <option>  Fishing</option>
+            <option>  Climbing</option>
+            <option>  Cycling</option>
+          </select>
+          
+          <p style="margin-left: 100px; margin-top:30px"><input type="submit" class="btn btn-primary" value = "Search" ></p>
+
+        </td>
+
+          <td align="right" valign="top">
+          <table class="table table-striped" style="table-layout: fixed; margin-left: 300px; width: 100%">
+              <col width="30">
+              <col width="30">
+              <col width="100">
+              <col width="35">
+            <tr>
+              <th>Username</th>
+              <th>Rating</th> 
+              <th>Match area</th>
+              <th>Learn more</th>
+            </tr>
+            <tr>
+              <td>Sunny</td>
+              <td>4.5</td> 
+              <td>Durham: Eating</td>
+              <td><button type="button">Profile</button>
+              <button type="button">Chat</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <td>5</td> 
+              <td>San Francisco: Acdemic/Museum</td>
+              <td><button type="button">Profile</button>
+              <button type="button">Chat</button>
+              </td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+        </table>
+          </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

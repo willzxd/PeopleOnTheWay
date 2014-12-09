@@ -1,0 +1,114 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>Message &middot; Travel Connection</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="description" content="">
+                    <meta name="author" content="">
+                        
+                        <!-- Le styles -->
+                        <link href="/static/css/travel.css" rel="stylesheet">
+                            <style type="text/css">
+                                 body {
+                                    padding-top: 30px;
+                                    padding-bottom: 40px;
+                                    background-color: #ECF0F2;
+                                }
+                            
+                            /* Custom container */
+                            .container-narrow {
+                                margin: 0 auto;
+                                max-width: 700px;
+                                background-color: #dee5e8;
+                            }                            
+                            /* Supporting marketing content */
+                            .marketing {
+                                margin-top: 60px;
+                                margin-left: 30px;
+                                margin-right: 60px;
+                                margin-bottom: 60px;
+                            }
+                            
+                                </style>
+                            <link href="/static/css/travel-responsive.css" rel="stylesheet">
+                                
+                                <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+                                <!--[if lt IE 9]>
+                                 <script src="../assets/js/html5shiv.js"></script>
+                                 <![endif]-->
+                                
+                                <!-- Fav and touch icons -->
+                                <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/65281_letter-t_lg.png">
+                                    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/65281_letter-t_lg.png">
+                                        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/65281_letter-t_lg.png">
+                                            <link rel="apple-touch-icon-precomposed" href="../assets/ico/a65281_letter-t_lg.png">
+                                                <link rel="shortcut icon" href="../assets/ico/65281_letter-t_lg.png">
+                                                    </head>
+    
+    <body>
+        
+        <div class="container-narrow">
+            <div class="row-fluid marketing">
+                <h4 style="margin-top: 40px; margin-bottom:30px">All Messages</h4>
+                <table class="table table-striped" style="table-layout: fixed; width: 93%">
+                   <col width="100">
+                        <col width="150">
+                            <col width="100">
+                                <tr>
+                                    <th>Username</th>
+                                    <th>View</th>
+                                    <th>Last message time</th>
+                                </tr>
+                                {% for l in lists %}
+                                {% if l %}
+                                <tr>
+                                    <td><img src="{{l.avatar(50)}}" width="50" height="50" style="margin-right: 20px"><a href = "/user/{{l.nickname}}" >{{l.nickname}}</a>
+                                    </td>
+                                    <td><a href="/message/{{l.nickname}}">View the history messages</a><br>
+                                    {% if l.user_new(user) == True %}
+                                    <b>New message!</b>
+                                   
+                                    {% endif %}
+                                    </td>           
+                                    <td>12-4-2014 16:42:34</td>
+                                
+                                </tr>
+                                
+                                {%endif%}
+                                {%endfor%}
+                                </table>
+            </div>
+        </div>
+        
+        
+        <hr>
+        
+        <div class="footer">
+            <p style="margin-left: 20px">&copy; Travel Team</p>
+        </div>
+        </div> <!-- /container -->
+        
+        <!-- Le javascript
+         ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/bootstrap-transition.js"></script>
+        <script src="../assets/js/bootstrap-alert.js"></script>
+        <script src="../assets/js/bootstrap-modal.js"></script>
+        <script src="../assets/js/bootstrap-dropdown.js"></script>
+        <script src="../assets/js/bootstrap-scrollspy.js"></script>
+        <script src="../assets/js/bootstrap-tab.js"></script>
+        <script src="../assets/js/bootstrap-tooltip.js"></script>
+        <script src="../assets/js/bootstrap-popover.js"></script>
+        <script src="../assets/js/bootstrap-button.js"></script>
+        <script src="../assets/js/bootstrap-collapse.js"></script>
+        <script src="../assets/js/bootstrap-carousel.js"></script>
+        <script src="../assets/js/bootstrap-typeahead.js"></script>
+        
+    </body>
+</html>
+{% endblock %}

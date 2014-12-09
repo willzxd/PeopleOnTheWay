@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Search away!</title>
+</head>
+<body>
+	<h1>Search for travel advice.</h1><br>
+    <h4>* Please capitalize and fill all text fields! *</h4>
+	<form action="/search_results/" method="post" name="search">
+		<p>
+		{{ form.hidden_tag() }}
+
+		State: {{ form.state }}
+		City: {{ form.city }}
+		Activity: {{ form.activity}}
+
+		{% for error in form.state.errors %}
+			State error! 
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br>
+        {% for error in form.city.errors %}
+           	City field error! 
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br>
+		{% for error in form.activity.errors %}
+           	Activity field error!
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br>
+    	</p>
+    	<p><input type="submit" value="Submit"></p>
+    </form>
+</body>
+</html>
+

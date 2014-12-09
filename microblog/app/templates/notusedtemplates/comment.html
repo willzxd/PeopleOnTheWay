@@ -1,0 +1,8 @@
+<table>
+    <tr valign="top">
+        <td><img src="{{comment.get_rater().avatar(50)}}"></td>
+        <td><i>{{comment.get_rater().nickname}} says:</i><br>{{comment.comment}}</td>
+        <td><b>rating:</b>{{comment.rates}}</td>
+        <td>time:{{comment.timestamp.month}}-{{comment.timestamp.day}}-{{comment.timestamp.year}}</td>
+    </tr>
+</table>

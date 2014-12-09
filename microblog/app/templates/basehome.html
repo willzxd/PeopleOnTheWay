@@ -1,0 +1,77 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>Home &middot; Travel Connection</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="description" content="">
+                    <meta name="author" content="">
+                        
+                        <!-- Le styles -->
+                        <link href="/static/css/travel.css" rel="stylesheet">
+                            <style type="text/css">
+                                body {
+                                    padding-top: 60px;
+                                    padding-bottom: 40px;
+                                }
+
+                            </style>
+                            <link href="/static/css/travel-responsive.css" rel="stylesheet">
+                                
+                                <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+                                <!--[if lt IE 9]>
+                                 <script src="../assets/js/html5shiv.js"></script>
+                                 <![endif]-->
+                                
+                                <!-- Fav and touch icons -->
+                                <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/65281_letter-t_lg.png">
+                                    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/65281_letter-t_lg.png">
+                                        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/65281_letter-t_lg.png">
+                                            <link rel="apple-touch-icon-precomposed" href="../assets/ico/a65281_letter-t_lg.png">
+                                                <link rel="shortcut icon" href="../assets/ico/65281_letter-t_lg.png">
+                                                    </head>
+    
+    <body>
+ 
+
+<div class="navbar navbar-inverse navbar-fixed-top" >
+     <div class="navbar-innerhome">
+         <div class="container">
+             <a class="brand" href="{{ url_for('index') }}">Travel Connection</a>
+             <div class="nav nav-pills pull-right">
+                 <ul class="nav">
+                     <li><a href="/index">Home</a></li>
+                     <!--<li><a href="#search">Back</a></li>-->
+                     {% if g.user.is_authenticated() %}
+                     <li><a href="/user/{{g.user.nickname}}">My Profile</a></li>
+                     {% else %}
+                     <li><a href="/login">Sign In</a></li>
+                     {%endif%}
+                     {% if g.user.is_authenticated() %}
+                     <li><a href="/message/{{g.user.nickname}}" >Message</a></li>
+                     {% if newmessage == 1 %}
+                     <li><div class="alert">
+                         <button type="button" class="close" data-dismiss="alert">&times;</button>
+                         New message!</div></a></li>
+                     {% endif %}
+                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                     {% endif %}
+                 </ul>
+             </div>
+         </div>
+     </div>
+ </div>
+ 
+<!--     <hr> -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

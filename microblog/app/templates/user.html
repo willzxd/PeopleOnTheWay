@@ -1,0 +1,229 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>User profile &middot; Travel Connection</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="description" content="">
+                    <meta name="author" content="">
+                        
+                        <!-- Le styles -->
+                        <link href="/static/css/travel.css" rel="stylesheet">
+                            <style type="text/css">
+                                body {
+                                    padding-top: 60px;
+                                    padding-bottom: 40px;
+                                    background-color: #ECF0F2;
+                                }
+        
+                            /* Custom container */
+                            .container-narrow {
+                                margin: 0 auto;
+                                max-width: 700px;
+                                background-color: #DCE3E6;
+                            }
+                            .container-narrow > hr {
+                                margin: 30px 0;
+                            }
+                            
+                            /* Main marketing message and sign up button */
+                            .jumbotron {
+                                margin: 60px 0;
+                                text-align: center;
+                            }
+                            .jumbotron h1 {
+                                font-size: 40px;
+                                line-height: 2.5;
+                            }
+                            .jumbotron .userphoto {
+                                display: block;
+                                float: left;
+                                margin-top: 30px;
+                                margin-left: 40px;
+                                margin-right: -40px;
+                                margin-bottom: 30px;
+                            }
+                            .jumbotron .btn {
+                                font-size: 21px;
+                                padding: 14px 24px;
+                            }
+                            
+                            /* Supporting marketing content */
+                            .marketing {
+                                margin-top: 60px;
+                                margin-left: 30px;
+                                margin-right: 60px;
+                                margin-bottom: 60px;
+                            }
+                            .marketing p + h4 {
+                                margin-top: 28px;
+                            }
+                            </style>
+                            <link href="/static/css/travel-responsive.css" rel="stylesheet">
+                                
+                                <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+                                <!--[if lt IE 9]>
+                                 <script src="../assets/js/html5shiv.js"></script>
+                                 <![endif]-->
+                                
+                                <!-- Fav and touch icons -->
+                                <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/65281_letter-t_lg.png">
+                                    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/65281_letter-t_lg.png">
+                                        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/65281_letter-t_lg.png">
+                                            <link rel="apple-touch-icon-precomposed" href="../assets/ico/a65281_letter-t_lg.png">
+                                                <link rel="shortcut icon" href="../assets/ico/65281_letter-t_lg.png">
+                                                    </head>
+    
+    <body>
+        <div class="container-narrow">
+            <div class="jumbotron">
+                <div class="userphoto"><img src="{{user.avatar(128)}}" width="100" height="100" alt="default avatar">
+                    </div>
+                <h1>{{user.nickname}}</h1>
+            </div>
+            
+            <hr>
+            
+            <div class="row-fluid marketing">
+<!--                 <div class="nav nav-pills pull-right" style="margin-right: 50px"> -->
+                        {% if user.id == g.user.id %}
+                        <p><font size="4"><button class="btn btn-primary" type="button" onclick="location.href='{{url_for('edit')}}'" >Edit</button></font></p>
+                        {% else %}
+                        <p><font size="4"><button class="btn btn-primary" type="button" onclick="location.href='/message/{{nickname}}'" >Chat Now!</button></font></p>
+                        {% endif %}
+<!--                 </div>
+
+                <div class="nav nav-pills pull-right"> -->
+                    <div class="nav-collapse collapse" style=" margin-bottom: 28px"> 
+                        <a href="#Comments" class="dropdown-toggle" data-toggle="dropdown"><font size="3">Average Rating: {{averagerate}} 
+                            <b class="caret"></b></font></a>
+<!--                         <ul class="dropdown-menu">
+                            <li><a href="#Comments">View all comments</a>
+                            </li>
+                        </ul> -->
+<!--                     </div> -->
+                </div>
+                {% if user.firstname %}
+                <h4>Name</h4>
+                <p><font size="3.5">{{user.firstname}} {{user.lastname}}</font></p>
+                {% endif%}
+                
+               
+                <h4>Place</h4>
+                {% for u in useraoi%}             
+                <p><font size ="3.5">{{u.city}}</font></p>
+                {% endfor %}
+                
+                <h4>Area of Interest</h4>
+                {% for u in useraoi%}   
+                {% if u.area !=' ' %}
+                <p><font size ="3.5">{{u.area}}<br></font></p>
+                {% endif %}
+                {% endfor %}
+                
+     
+                {% if user.phone%}
+                <h4>Phone</h4>
+                <p><font size="3.5">{{user.phone}}</font></p>
+                {%endif%}
+                <h4>About me</h4>
+                {% if user.about_me %}<p>{{user.about_me}}</p>{% endif %}<br>
+
+                {% if user.last_seen %}<p><i>Last seen on: {{user.last_seen}}</i></p>{% endif %}
+       
+    
+        
+                {% if user.id != g.user.id %}
+                {% if form == None %}
+                <h4>You have already rated very recently! :D</h4>
+                {% else %}
+                <h4>Leave a feedback</h4>
+                <form method="post" action="" name="rating"><!--very likely have to fix here!!-->
+                    {{form.hidden_tag()}}
+                    <table cellpadding="0" cellspacing="0" width="133" bgcolor=#FFFFFF style="table-layout: fixed; width: 100%">
+                            <col width="127">
+                            <col width="400">
+                        <tr>
+                                <!--<iframe src="http://www.ratingcode.com/show.php?id=141773548911&st=3&bg=FFFFFF" border="0" width="115" height="37" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" bgcolor=FFFFFF name = "rates" id = "myrate">
+                             
+                                <script>form.rates.data = document.getElementById('myrate'); </script>
+                                 
+                             </iframe>
+                            -->
+                                <td>Rate(1.0 to 5.0):</td>
+                                <td>{{ form.rates(size = 30, maxlength = 4) }}</td>
+                                {% for error in form.errors.post %}
+                                <span style="color: red;">[{{error}}]</span><br>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                               <td>Comment here:</td>
+                               <td>
+                                   <p><textarea cols="50" rows="4" name = "comment" placeholder="Please leave your comments here" style="width:220px"></textarea></p>
+                               </td>
+                           </td>
+                    </table>
+                    <p><input type="submit" class="btn" value = "Post it!"></input></p>
+    
+                </form>
+                {% endif %}
+                {% endif %}
+                
+                <h4><a name="Comments">Feedback Rating</a></h4>
+                
+                <table class="table table-striped" style="table-layout: fixed; width: 92%">
+                    <col width="70">
+                        <col width="40">
+                            <col width="100">
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Rating</th>
+                                    <th>Comment</th>
+                                    <!--missing time and image-->
+                                </tr>
+                                {%for comment in comments%}
+                                <tr>
+                                    <td><img src="{{comment.get_rater().avatar(50)}}" width="50" height="50" style="margin-right: 20px">{{comment.get_rater().nickname}}</td>
+                                    <td>{{comment.rates}}</td>
+                                    <td style="word-wrap: break-word">{{comment.comment}}<br> posted on: {{comment.timestamp.day}}-{{comment.timestamp.month}}-{{comment.timestamp.year}} </td>
+                                
+                                    <!-- <td><img src="{{comment.get_rater().avatar(50)}}"></td> -->
+                                    <!-- <td>time:{{comment.timestamp.month}}-{{comment.timestamp.day}}-{{comment.timestamp.year}}</td>-->
+                                </tr>
+                                {%endfor%}
+                                <!---need to substitute-->
+                                </table>
+            </div>
+            
+            <hr>
+            
+            <div class="footer">
+                <p>&copy; Travel Team</p>
+            </div>
+        </div> <!-- /container -->
+        
+        <!-- Le javascript
+         ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/bootstrap-transition.js"></script>
+        <script src="../assets/js/bootstrap-alert.js"></script>
+        <script src="../assets/js/bootstrap-modal.js"></script>
+        <script src="../assets/js/bootstrap-dropdown.js"></script>
+        <script src="../assets/js/bootstrap-scrollspy.js"></script>
+        <script src="../assets/js/bootstrap-tab.js"></script>
+        <script src="../assets/js/bootstrap-tooltip.js"></script>
+        <script src="../assets/js/bootstrap-popover.js"></script>
+        <script src="../assets/js/bootstrap-button.js"></script>
+        <script src="../assets/js/bootstrap-collapse.js"></script>
+        <script src="../assets/js/bootstrap-carousel.js"></script>
+        <script src="../assets/js/bootstrap-typeahead.js"></script>
+        
+    </body>
+</html>
+{% endblock %}
+
+

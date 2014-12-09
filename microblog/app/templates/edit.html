@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+
+{% block content %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>Edit profile &middot; Travel Connection</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="description" content="">
+                    <meta name="author" content="">
+                        
+                        <!-- Le styles -->
+                        <link href="/static/css/travel.css" rel="stylesheet">
+                            <style type="text/css">
+                                body {
+                                    padding-top: 30px;
+                                    padding-bottom: 40px;
+                                }
+                            
+                            /* Custom container */
+                            .container-narrow {
+                                margin-top: -50px;
+                                margin-bottom: -60px;
+                                background-color: #ECF0F2;
+                            }
+                            
+                            /* Supporting marketing content */
+                            .marketing {
+                                margin-top: 60px;
+                                margin-left: 30px;
+                                margin-right: 60px;
+                                margin-bottom: 60px;
+                            }
+                            
+                                </style>
+                            <link href="/static/css/travel-responsive.css" rel="stylesheet">
+                                
+                                <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+                                <!--[if lt IE 9]>
+                                 <script src="../assets/js/html5shiv.js"></script>
+                                 <![endif]-->
+                                
+                                <!-- Fav and touch icons -->
+                                <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/ico/65281_letter-t_lg.png">
+                                    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/ico/65281_letter-t_lg.png">
+                                        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/ico/65281_letter-t_lg.png">
+                                            <link rel="apple-touch-icon-precomposed" href="/static/ico/a65281_letter-t_lg.png">
+                                                <link rel="shortcut icon" href="/static/ico/65281_letter-t_lg.png">
+                                                    </head>
+    
+    <body>
+        
+<div class="container-narrow">
+    <div class="row-fluid marketing">
+    <h4 style="margin-top: 50px; margin-left: 30px">Edit your profile</h4>
+    <form class="form-horizontal" action = "" method= "post" name = "edit">
+    {{form.hidden_tag()}}
+    <table style="table-layout: fixed; width: 100%">
+                           <col width="75">
+                            <col width="400">
+        <tr  align="left">
+            <td><label class="control-label">Nickname: </label></td>
+            <td>
+                <input type="text" name = "nickname" id="inputNick" value ="{{g.user.nickname}}" style="width:220px">
+                {% for error in form.errors.nickname %}
+                <br><span style="color: red;">{{error}}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td><label class="control-label">Firtsname: </label></td>
+            <td>
+                <input type="text" name= "firstname" id="inputfirstName" placeholder="First Name" style="width:220px">
+                   <!-- <script>form.firstname.data = document.getElementById('inputfirstName');</script> -->
+            </td>
+        </tr>
+        
+        <tr>
+        <td><label class="control-label">Lastname: </label></td>
+        <td>
+            <input type="text" name = "lastname" id="inputlastName" placeholder="Last Name" style="width:220px">
+                <!--<script>form.lastname.data = document.getElementById('inputlastName');</script>-->
+        </td>
+        </tr>
+
+        <tr >
+            <td><label class="control-label">Phone: </label></td>
+            <td>
+            <input type="text" name = "phone" id="inputPhone" placeholder="Phone" style="width:220px">
+                <!--<script>form.phone.data = document.getElementById('inputPhone'); </script>-->
+            </td>
+        </tr>
+        <tr>
+        <td><label class="control-label">About me: </label></td>
+        <td>
+            <p><textarea cols="50" rows="4" name = "about_me" placeholder="About me" style="width:220px"></textarea></p>
+        </td>
+        </tr>
+    </table>
+    
+    <label class="control-label">Expert area: </label>
+    <div class="controls">
+        <table style="table-layout: fixed; width: 100%">
+                            <col width="127">
+                            <col width="400">
+            <tr>
+                <td align="center"><font size="2">Country</font></td>
+            </tr>
+            
+            <td align="center">
+                <select multiple="multiple" id = "inputCountry" name = "country">
+                    <option selected = "selected">United States</option>
+                </select>
+            </td>
+
+            <tr>
+                <td align="center"><font size="2">State</font></td>
+            </tr>
+            
+            <td align="center">
+                <select multiple="multiple" id = "inputState" name = "state">
+                    <option selected = "selected">AK</option>
+            <option>AZ</option>
+            <option>CA</option> 
+            <option>DC</option>
+            <option>FL</option>
+            <option>GA</option>
+            <option>HI</option>           
+            <option>IL</option>           
+            <option>MA</option>
+            <option>MN</option>
+            <option>NJ</option>
+            <option>NY</option> 
+            <option>NC</option> 
+            <option>TA</option>    
+            <option>WA</option> 
+                    <option>TX</option>
+                </select>
+            </td>
+
+<tr>
+    <td align="center"><font size="2">City</font></td>
+</tr>
+<td align="center">
+    <select multiple="multiple" id= "inputCity" name = "city">
+        <option selected = "selected">Anchorage, AK</option>
+            <option>Juneau, AK</option>
+            <option>Phoenix, AZ</option>
+            <option>Los Angeles, CA</option>
+            <option>San Francisco, CA</option>
+            <option>Sacramento, CA</option> 
+            <option>Washington, DC</option>
+            <option>Miami, FL</option>
+            <option>Olando, FL</option>
+            <option>Tallahassee, FL</option>
+            <option>Atlanta, GA</option>
+            <option>Honolulu, HI</option>
+            <option>Chicago, IL</option>           
+            <option>Springfield, IL</option>           
+            <option>Boston, MA</option>
+            <option>Minneapolis, MN</option>
+            <option>Saint Paul, MN</option>
+            <option>Newark, NJ</option>
+            <option>Trenton, NJ</option>
+            <option>Albany, NY</option>
+            <option>New York City, NY</option>
+            <option>Durham, NC</option>
+            <option>Chapel Hill, NC</option>
+            <option>Charlotte, NC</option> 
+            <option>Raleigh, NC</option> 
+            <option>Austin, TX</option>
+            <option>Dallas–Fort Worth, TX</option>
+            <option>Houston, TX</option>    
+            <option>Olympia, WA</option>
+            <option>Seattle, WA</option>      
+            <option>Madison, WI</option>
+            <option>Milwaukee, WI</option> 
+    </select>
+</td>
+
+<!--<script>form.state.data = document.getElementById('inputState').value;</script>-->
+   <tr>
+       <td align="center"><font size="2">Interest</font></td>
+   </tr>
+   <td align="center">
+       <select multiple="multiple" id="inputArea" name = "area">
+           <option selected = "selected">Art Scene</option>
+            <option>  Christmas Lights </option>
+            <option>  Concerts </option>
+            <option>  Festivals </option>
+            <option>  Free Attractions</option>
+            <option>  Galleries</option>
+            <option>  Historical Sites</option>
+            <option>  Museums</option>
+            <option>  Music Scene</option>
+            <option>  Theater</option>
+            <option>  Antiques Stores</option>
+            <option>  Bookstores</option>
+            <option>  Boutiques</option>
+            <option>  Flea Markets</option>
+            <option>  Home Décor/Design Stores</option>
+            <option>  Luxury Stores</option>
+            <option>  Specialty Food Markets/Food Halls</option>
+            <option>  Public Parks/Gardens</option>
+            <option>  Public Transportation</option>
+            <option>  Cocktail Bars</option>
+            <option>  Dive Bars</option>
+            <option>  Live Music Scene</option>
+            <option>  Nightclubs</option>
+            <option>  Singles Scene</option>
+            <option>  Wine Bars</option>
+            <option>  Bakeries</option>
+            <option>  Barbecue</option>
+            <option>  Bars</option>
+            <option>  Brunch</option>
+            <option>  Coffee</option>
+            <option>  Craft Beer</option>
+            <option>  Diners</option>
+            <option>  Hamburgers</option>
+            <option>  Notable Restaurants</option>
+            <option>  Pizza</option>
+            <option>  Sandwiches</option>
+            <option>  Street Food/Food Trucks</option>
+            <option>  Spa</option>
+            <option>  Skiing</option>
+            <option>  Hiking</option>
+            <option>  Fishing</option>
+            <option>  Climbing</option>
+            <option>  Cycling</option>
+       </select>
+ <!--  </td><script>form.area.data = document.getElementById('inputArea').value;</script></tr> -->
+</table>
+</div>
+
+<p style="margin-left: 100px; margin-top:30px"><input type="submit" class="btn btn-primary" value = "Update" ></p>
+<title>My Application</title>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+</form>
+
+<!--start from here-->
+            </div>
+        </div>
+        
+        
+        <hr>
+        
+        <div class="footer">
+            <p>&copy; Travel Team</p>
+        </div>
+        </div> <!-- /container -->
+        <!-- Le javascript
+         ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/bootstrap-transition.js"></script>
+        <script src="../assets/js/bootstrap-alert.js"></script>
+        <script src="../assets/js/bootstrap-modal.js"></script>
+        <script src="../assets/js/bootstrap-dropdown.js"></script>
+        <script src="../assets/js/bootstrap-scrollspy.js"></script>
+        <script src="../assets/js/bootstrap-tab.js"></script>
+        <script src="../assets/js/bootstrap-tooltip.js"></script>
+        <script src="../assets/js/bootstrap-popover.js"></script>
+        <script src="../assets/js/bootstrap-button.js"></script>
+        <script src="../assets/js/bootstrap-collapse.js"></script>
+        <script src="../assets/js/bootstrap-carousel.js"></script>
+        <script src="../assets/js/bootstrap-typeahead.js"></script>
+        
+    </body>
+</html>
+{% endblock %}

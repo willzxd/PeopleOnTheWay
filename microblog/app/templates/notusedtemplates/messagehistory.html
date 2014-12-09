@@ -1,0 +1,7 @@
+<table>
+    <tr valign="top">
+        <td><img src="{{message.get_sender().avatar(50)}}"></td>
+        <td><i>{{message.get_sender().nickname}} says:</i><br>{{message.text}}</td>
+        <td>time:{{message.time.month}}-{{message.time.day}}-{{message.time.year}} {{message.time.hour}}:{{message.time.minute}}:{{message.time.second}}</td>
+    </tr>
+</table>
