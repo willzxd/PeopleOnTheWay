@@ -62,7 +62,7 @@ Limitations in our current implementation
 
 Team
 -----
-Xiaodan Zhu, Yongjiao Yu, Yan Huang, Vivian Li
+Xiaodan Zhu, [Yongjiao Yu](https://github.com/Yongjiao), Yan Huang, Vivian Li
 
 Reference
 ---------
